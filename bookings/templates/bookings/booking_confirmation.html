@@ -1,0 +1,74 @@
+
+{% extends 'bookings/base.html' %}
+
+{% block title %}Booking Confirmation | EventEase{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+    <div class="card event-card p-4 mx-auto"
+         style="max-width: 600px;">
+
+        <h2 class="text-warning">
+            Booking Created!
+        </h2>
+
+        <p>Your booking has been recorded successfully.</p>
+
+        <hr>
+
+        <p><strong>Event:</strong> {{ booking.event.title }}</p>
+
+        <p><strong>Tickets:</strong> {{ booking.quantity }}</p>
+
+        <p>
+            <strong>Total:</strong>
+            KSh {{ booking.total_amount }}
+        </p>
+
+        <p>
+            <strong>Reference:</strong>
+            {{ booking.reference }}
+        </p>
+
+        <p>
+            <strong>Payment status:</strong>
+            {{ booking.get_status_display }}
+        </p>
+
+        <p class="text-warning">
+            Your booking is pending payment.
+        </p>
+        
+        <form method="POST"
+			  action="{% url 'initiate_mpesa_payment' booking.reference %}">
+
+			{% csrf_token %}
+
+			<label class="form-label">
+				M-Pesa Phone Number
+			</label>
+
+			<input
+				type="tel"
+				name="phone"
+				class="form-control mb-3"
+				placeholder="07XXXXXXXX"
+				required
+			>
+
+			<button type="submit" class="btn btn-gold w-100">
+				Pay with M-Pesa
+			</button>
+
+		</form>
+
+        <a href="{% url 'home' %}" class="btn btn-gold">
+            Back to Events
+        </a>
+
+    </div>
+</div>
+
+{% endblock %}
+ 

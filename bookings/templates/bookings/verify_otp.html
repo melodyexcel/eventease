@@ -1,0 +1,38 @@
+
+{% extends 'bookings/base.html' %}
+
+{% block title %}Verify Email | EventEase{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box text-center">
+        <p class="hero-label">EMAIL VERIFICATION</p>
+        <h2>Verify Your Email</h2>
+
+        <p class="text-secondary">
+            Enter the six-digit code sent to your email.
+            The code expires in 10 minutes.
+        </p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="otp"
+                class="form-control otp-input"
+                placeholder="000000"
+                maxlength="6"
+                pattern="[0-9]{6}"
+                inputmode="numeric"
+                required
+            >
+
+            <button class="btn btn-gold w-100 mt-4">
+                Verify Account
+            </button>
+        </form>
+    </div>
+</div>
+{% endblock %}
+ 

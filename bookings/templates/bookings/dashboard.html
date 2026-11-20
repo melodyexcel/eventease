@@ -1,0 +1,36 @@
+
+{% extends 'bookings/base.html' %}
+
+{% block title %}Dashboard | EventEase{% endblock %}
+
+{% block content %}
+<section class="container py-5">
+    <p class="hero-label">YOUR ACCOUNT</p>
+
+    <h1>Welcome, {{ user.first_name }}!</h1>
+
+    <p class="text-secondary">
+        Your EventEase experience starts here.
+    </p>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h4>Discover Events</h4>
+                <p>Find your next unforgettable experience.</p>
+                <a href="{% url 'events' %}" class="btn btn-gold">
+                    Browse Events
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <div class="dashboard-card">
+                <h4>My Bookings</h4>
+                <p>Your event booking history will appear here.</p>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+ 

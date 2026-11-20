@@ -1,0 +1,131 @@
+{% extends 'bookings/base.html' %}
+{% block title %}EventEase | Discover Events{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="hero text-center py-5">
+    <div class="container">
+        <h1>Discover. Book. Experience.</h1>
+
+        <p>
+            Find exciting events and reserve your tickets
+            with EventEase.
+        </p>
+
+        <a href="#events" class="btn btn-gold mt-3">
+            Explore Events
+        </a>
+    </div>
+</section>
+
+
+<!-- EVENTS SECTION -->
+<section class="container py-5" id="events">
+
+    <div class="text-center mb-5">
+        <h2>Upcoming Events</h2>
+        <p>Discover experiences worth remembering.</p>
+    </div>
+
+    <div class="row g-4">
+
+        {% for event in events %}
+
+        <div class="col-md-4">
+
+            <div class="card event-card h-100">
+
+                <div class="card-body">
+
+                    <span class="badge bg-warning text-dark mb-3">
+                        Upcoming Event
+                    </span>
+
+                    <h4 class="card-title">
+                        {{ event.title }}
+                    </h4>
+
+                    <p class="card-text">
+                        {{ event.description }}
+                    </p>
+
+                    <hr>
+
+                    <p>
+                        <strong>Venue:</strong>
+                        {{ event.venue }}
+                    </p>
+
+                    <p>
+                        <strong>Date:</strong>
+                        {{ event.date|date:"d M Y, H:i" }}
+                    </p>
+
+                    <h5 class="text-warning">
+                        KSh {{ event.ticket_price }}
+                    </h5>
+
+                    <p>
+                        <strong>Capacity:</strong>
+                        {{ event.capacity }} tickets
+                    </p>
+
+                    <a href="{% url 'book_event' event.id %}"
+						class="btn btn-gold w-100">
+						Book Tickets
+					</a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12 text-center py-5">
+
+            <h4>No Events Available</h4>
+
+            <p>
+                There are currently no published events.
+                Please check back soon!
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT SECTION -->
+<section class="container py-5 text-center">
+
+    <h2>Why Choose EventEase?</h2>
+
+    <div class="row g-4 mt-3">
+
+        <div class="col-md-4">
+            <h4>Easy Booking</h4>
+            <p>Reserve your event tickets with ease.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Secure Payments</h4>
+            <p>Convenient payment integration.</p>
+        </div>
+
+        <div class="col-md-4">
+            <h4>Memorable Experiences</h4>
+            <p>Discover events and create memories.</p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

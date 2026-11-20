@@ -1,0 +1,187 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #101010;
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+}
+
+.navbar {
+    background: #080808;
+    padding: 20px 0;
+    border-bottom: 1px solid #292929;
+}
+
+.navbar-brand {
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.navbar-brand span {
+    color: #D4AF37;
+}
+
+.nav-link {
+    color: #dddddd !important;
+    margin: 0 12px;
+}
+
+.nav-link:hover {
+    color: #D4AF37 !important;
+}
+
+.btn-gold {
+    background: #D4AF37;
+    color: #101010;
+    border: none;
+    padding: 11px 24px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.btn-gold:hover {
+    background: #f0cb59;
+    color: #101010;
+}
+
+.footer {
+    background: #080808;
+    padding: 35px 15px;
+    margin-top: 70px;
+    border-top: 1px solid #292929;
+    color: #aaaaaa;
+}
+.hero {
+    padding: 120px 20px;
+    background: radial-gradient(circle at center, #29200d, #101010 70%);
+}
+
+.hero-label {
+    color: #D4AF37;
+    letter-spacing: 3px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(38px, 6vw, 70px);
+    font-weight: 700;
+    margin: 25px 0;
+}
+
+.hero h1 span {
+    color: #D4AF37;
+}
+
+.hero-description {
+    color: #bbbbbb;
+    max-width: 600px;
+    margin: auto;
+    line-height: 1.8;
+}
+
+.featured-section {
+    padding-top: 75px;
+}
+
+.featured-section h2 {
+    font-weight: 700;
+}
+
+.event-card {
+    background: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 10px;
+    overflow: hidden;
+    height: 100%;
+    transition: 0.3s;
+}
+
+.event-card:hover {
+    transform: translateY(-6px);
+    border-color: #D4AF37;
+}
+
+.event-placeholder {
+    height: 180px;
+    background: linear-gradient(135deg, #392b0b, #171717);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D4AF37;
+    font-size: 25px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.event-card p {
+    color: #aaaaaa;
+}
+
+.event-card a {
+    color: #D4AF37;
+    text-decoration: none;
+} 
+/* Authentication pages */
+
+.auth-container {
+    min-height: 75vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 15px;
+}
+
+.auth-box {
+    width: 100%;
+    max-width: 480px;
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-radius: 12px;
+    padding: 35px;
+}
+
+.auth-box h2 {
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.auth-box input {
+    background: #101010;
+    border: 1px solid #444;
+    color: white;
+    padding: 12px;
+}
+
+.auth-box input:focus {
+    background: #101010;
+    color: white;
+    border-color: #D4AF37;
+    box-shadow: none;
+}
+
+.auth-box a {
+    color: #D4AF37;
+    text-decoration: none;
+}
+
+.otp-input {
+    text-align: center;
+    font-size: 25px;
+    letter-spacing: 10px;
+}
+
+.dashboard-card {
+    background: #1b1b1b;
+    border: 1px solid #383838;
+    border-radius: 10px;
+    padding: 30px;
+    height: 100%;
+}

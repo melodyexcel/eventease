@@ -1,0 +1,44 @@
+
+{% extends 'bookings/base.html' %}
+
+{% block title %}Register | EventEase{% endblock %}
+
+{% block content %}
+<div class="auth-container">
+    <div class="auth-box">
+        <p class="hero-label">JOIN EVENTEASE</p>
+        <h2>Create Account</h2>
+        <p class="text-secondary">Start discovering amazing experiences.</p>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            {% if form.errors %}
+                <div class="alert alert-danger">
+                    {{ form.errors }}
+                </div>
+            {% endif %}
+
+            {% for field in form %}
+                <div class="mb-3">
+                    <label class="form-label">{{ field.label }}</label>
+                    {{ field }}
+                    {% for error in field.errors %}
+                        <small class="text-danger">{{ error }}</small>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+
+            <button class="btn btn-gold w-100 mt-3">
+                Create Account
+            </button>
+        </form>
+
+        <p class="mt-4 text-center">
+            Already registered?
+            <a href="{% url 'login' %}">Login</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
+ 
