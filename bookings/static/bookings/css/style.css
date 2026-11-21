@@ -199,3 +199,8 @@ body {
 .event-card p {
     color: #eeeeee;
 }
+.hero {
+    background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+                url('../img/main.jpeg') center/cover no-repeat;
+    color: white;
+}
