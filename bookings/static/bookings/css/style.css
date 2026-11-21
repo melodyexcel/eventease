@@ -185,3 +185,17 @@ body {
     padding: 30px;
     height: 100%;
 }
+
+/* Event titles */
+.event-card h3,
+.event-card h4,
+.event-title {
+    color: #D4AF37 !important;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* Event description */
+.event-card p {
+    color: #eeeeee;
+}

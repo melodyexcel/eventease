@@ -27,6 +27,7 @@ class Event(models.Model):
     capacity = models.PositiveIntegerField()
     is_published = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to='events/', blank=True, null=True)
 
     class Meta:
         ordering = ['date']
@@ -104,19 +105,6 @@ class Booking(models.Model):
     def __str__(self):
         return f"{self.user.username} - {self.event.title}"
 
-    user = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='bookings'
-    )
-    event = models.ForeignKey(
-        Event, on_delete=models.CASCADE, related_name='bookings'
-    )
-    quantity = models.PositiveIntegerField()
-    total_amount = models.DecimalField(max_digits=10, decimal_places=2)
-    reference = models.UUIDField(default=uuid.uuid4, unique=True, editable=False)
-    status = models.CharField(
-        max_length=20, choices=STATUS_CHOICES, default='pending'
-    )
-    created_at = models.DateTimeField(auto_now_add=True)
 
-    def __str__(self):
-        return f"{self.user.username} - {self.event.title}"
+
+

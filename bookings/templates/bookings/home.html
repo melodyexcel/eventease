@@ -35,6 +35,10 @@
         <div class="col-md-4">
 
             <div class="card event-card h-100">
+				
+				{% if event.image %}
+				  <img src="{{ event.image.url }}" class="card-img-top" alt="{{ event.title }}">
+				{% endif %}
 
                 <div class="card-body">
 
