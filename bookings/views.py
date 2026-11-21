@@ -1,5 +1,7 @@
 import json
 
+from django.db.models import Q, Sum
+
 import base64
 import requests
 
@@ -34,18 +36,35 @@ from .forms import RegisterForm
 
 # HOME PAGE
 def home(request):
-    events = Event.objects.filter(
-        is_published=True
-    ).order_by('date')
+    events = Event.objects.filter(is_published=True)
+    q = request.GET.get('q', '').strip()
+    category = request.GET.get('category', '')
 
-    print("EVENTS FOUND:", events.count())
+    if q:
+        events = events.filter(
+            Q(title__icontains=q) | Q(venue__icontains=q) | Q(description__icontains=q)
+        )
+    if category:
+        events = events.filter(category=category)
 
-    return render(
-        request,
-        'bookings/home.html',
-        {'events': events}
-    )
+    return render(request, 'bookings/home.html', {
+        'events': events,
+        'q': q,
+        'selected_category': category,
+        'categories': Event.CATEGORY_CHOICES,
+    })
 
+
+def event_detail(request, event_id):
+    event = get_object_or_404(Event, id=event_id, is_published=True)
+    reserved = Booking.objects.filter(
+        event=event, status__in=['pending', 'paid']
+    ).aggregate(total=Sum('quantity'))['total'] or 0
+    available = max(event.capacity - reserved, 0)
+    return render(request, 'bookings/event_detail.html', {
+        'event': event,
+        'available': available,
+    })
 
 # USER REGISTRATION
 def register(request):

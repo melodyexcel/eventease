@@ -26,6 +26,15 @@ class Event(models.Model):
     ticket_price = models.DecimalField(max_digits=10, decimal_places=2)
     capacity = models.PositiveIntegerField()
     is_published = models.BooleanField(default=True)
+    CATEGORY_CHOICES = [
+		('tech', 'Tech'),
+		('music', 'Music'),
+		('art', 'Art'),
+		('business', 'Business'),
+		('festival', 'Festival'),
+		('other', 'Other'),
+	]
+	category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='events/', blank=True, null=True)
 
