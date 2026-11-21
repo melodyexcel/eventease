@@ -34,7 +34,7 @@ class Event(models.Model):
 		('festival', 'Festival'),
 		('other', 'Other'),
 	]
-	category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
+    category = models.CharField(max_length=20, choices=CATEGORY_CHOICES, default='other')
     created_at = models.DateTimeField(auto_now_add=True)
     image = models.ImageField(upload_to='events/', blank=True, null=True)
 

@@ -29,14 +29,14 @@
     </div>
     
 		<form method="get" action="{% url 'events' %}#events" class="row g-2 justify-content-center mb-3">
-		<div class="col-md-6">
-			<input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Search events or venues...">
-		</div>
-		{% if selected_category %}<input type="hidden" name="category" value="{{ selected_category }}">{% endif %}
-		<div class="col-auto">
-			<button class="btn btn-gold" type="submit">Search</button>
-		</div>
-	</form>
+			<div class="col-md-6">
+				<input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Search events or venues...">
+			</div>
+			{% if selected_category %}<input type="hidden" name="category" value="{{ selected_category }}">{% endif %}
+			<div class="col-auto">
+				<button class="btn btn-gold" type="submit">Search</button>
+			</div>
+		</form>
 
 	<div class="text-center mb-4">
 		<a href="{% url 'events' %}#events" class="btn btn-sm {% if not selected_category %}btn-gold{% else %}btn-outline-warning{% endif %} m-1">All</a>
