@@ -168,3 +168,13 @@ MPESA_SHORTCODE = os.environ.get('MPESA_SHORTCODE', '174379')
 MPESA_BASE_URL = 'https://sandbox.safaricom.co.ke'
 
 MPESA_CALLBACK_URL = os.environ.get('MPESA_CALLBACK_URL')
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {'console': {'class': 'logging.StreamHandler'}},
+    'root': {'handlers': ['console'], 'level': 'ERROR'},
+    'loggers': {
+        'django.request': {'handlers': ['console'], 'level': 'ERROR', 'propagate': False},
+    },
+}
