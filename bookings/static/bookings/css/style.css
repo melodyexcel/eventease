@@ -204,3 +204,14 @@ body {
                 url('../img/main.jpeg') center/cover no-repeat;
     color: white;
 }
+.event-card .card-text {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    min-height: 4.5em;
+}
+.event-card .card-img-top {
+    height: 200px;
+    object-fit: cover;
+}
